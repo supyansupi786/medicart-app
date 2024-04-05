@@ -23,7 +23,14 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors(
+{
+origin: ["https://deploy-mern-1whq.vercel.app"],
+methods: ["POST", "GET"],
+credentials: true
+
+}
+ ));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, './client/build')));
